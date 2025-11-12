@@ -1,0 +1,8 @@
+# Vercel ignore file
+# Do not ignore any images
+!*.jpg
+!*.jpeg
+!*.png
+!*.gif
+!*.webp
+!*.svg
