@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rally La Punta MTB</title>
+  <title>RALLY LA PUNTA MTB</title>
   <link rel="icon" type="image/svg+xml" href="LOGO.svg" />
   <style>
     :root{--yellow:#F9D80F;--yellow-deep:#FFD100;--black:#000;--transition:.4s ease}
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:#000;background:#fff;overflow-x:hidden;scroll-behavior:smooth}
 
-    .container{max-width:1400px;margin:0 auto;padding:0 6%}
+    .container{max-width:1400px;margin:0 auto;padding:0 clamp(3%, 6vw, 6%);width:100%;box-sizing:border-box}
 
     /* Hero */
     .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;text-align:center;position:relative;background:url('seccionhero.png') center/cover no-repeat;overflow:hidden;padding-top:20vh}
@@ -39,32 +39,37 @@
     /* Inscripciones */
     #inscripciones{background:#000;color:#fff}
     #inscripciones h2{color:var(--yellow)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 280px),1fr));gap:clamp(16px,2.5vw,28px)}
-    .card{height:clamp(350px,35vw,450px);display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:clamp(20px,2.5vw,32px);border-radius:22px;background:linear-gradient(135deg,var(--yellow-deep) 0%,var(--yellow) 100%);color:#000;border:1px solid rgba(0,0,0,.07);box-shadow:0 12px 28px rgba(0,0,0,.22);transition:transform .6s cubic-bezier(.25,1,.5,1),box-shadow .6s;cursor:pointer;opacity:0;transform:translateY(40px)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(16px,2.5vw,28px);width:100%}
+    .card{height:clamp(280px,30vh,420px);display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:clamp(16px,3vw,32px);border-radius:clamp(16px,2vw,22px);background:linear-gradient(135deg,var(--yellow-deep) 0%,var(--yellow) 100%);color:#000;border:1px solid rgba(0,0,0,.07);box-shadow:0 12px 28px rgba(0,0,0,.22);transition:transform .6s cubic-bezier(.25,1,.5,1),box-shadow .6s;cursor:pointer;opacity:0;transform:translateY(40px);width:100%;box-sizing:border-box}
     .card.show{opacity:1;transform:translateY(0);animation:cardFadeIn 1s ease forwards}
     @keyframes cardFadeIn{from{opacity:0;transform:translateY(40px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
     .card:hover{transform:translateY(-8px) scale(1.04);box-shadow:0 20px 42px rgba(0,0,0,.35)}
     .card h3{margin:10px 0 12px;font-size:clamp(1rem,2.2vw,1.25rem);font-weight:900;text-align:center}
     .card .btn{margin:0 auto 6px;background:#000;color:var(--yellow);padding:clamp(10px,1.5vw,14px) clamp(24px,4vw,36px);font-size:clamp(0.85rem,1.8vw,1rem)}
-    .card-carrera{background:url('inscripcioncarrera.png') center/cover no-repeat;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.7)}
-    .card-infantil{background:url('inscripcioninfantil.png') center/cover no-repeat;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.7)}
-    .card-padrehijos{background:url('inscripcionpadrehijos.png') center/cover no-repeat;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.7)}
-    .card-jersey{background:url('inscripcionjerseyremera.png') center/cover no-repeat;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.7)}
+    .card-carrera{background:url('inscripcioncarrera.png') center/cover no-repeat;color:var(--yellow);text-shadow:0 2px 8px rgba(0,0,0,0.8)}
+    .card-infantil{background:url('inscripcioninfantil.png') center/cover no-repeat;color:var(--yellow);text-shadow:0 2px 8px rgba(0,0,0,0.8)}
+    .card-padrehijos{background:url('inscripcionpadrehijos.png') center/cover no-repeat;color:var(--yellow);text-shadow:0 2px 8px rgba(0,0,0,0.8)}
+    .card-jersey{background:url('inscripcionjerseyremera.png') center/cover no-repeat;color:var(--yellow);text-shadow:0 2px 8px rgba(0,0,0,0.8)}
     .card-carrera .btn, .card-infantil .btn, .card-padrehijos .btn, .card-jersey .btn{background:rgba(0,0,0,0.8);color:var(--yellow);backdrop-filter:blur(5px)}
 
     /* Organización */
     .org{background:var(--yellow)}
-    .org .grid{gap:26px}
-    .org-card{background:#fff;border:1px solid #eee;border-radius:16px;padding:28px;text-align:center;box-shadow:0 8px 22px rgba(0,0,0,.1);height:280px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;transition:.45s cubic-bezier(.22,1,.36,1);opacity:0;transform:translateY(30px)}
+    .org .grid{gap:clamp(16px,2.5vw,26px)}
+    .org-card{background:#fff;border:1px solid #eee;border-radius:clamp(12px,1.5vw,16px);padding:clamp(20px,3vw,30px);text-align:center;box-shadow:0 8px 22px rgba(0,0,0,.1);height:clamp(240px,28vh,300px);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;transition:.45s cubic-bezier(.22,1,.36,1);opacity:0;transform:translateY(30px);width:100%;box-sizing:border-box}
     .org-card.show{opacity:1;transform:translateY(0)}
     .org-card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 16px 36px rgba(0,0,0,.15)}
-    .org-icon{width:80px;height:80px;margin:0 auto 20px;padding:20px;background:#f8f9fa;border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .org-card h3{margin:15px 0;font-size:clamp(1rem,1.8vw,1.2rem);font-weight:800;line-height:1.3;flex-grow:1;display:flex;align-items:center;justify-content:center}
+    .org-card .btn{margin-top:0;cursor:pointer;border:none;text-decoration:none;display:inline-block}
+    .org-icon{width:80px;height:80px;margin:0 auto 10px;padding:20px;background:#f8f9fa;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .org-icon svg{width:40px;height:40px;stroke:#333;stroke-width:2}
 
     /* Sponsors */
     .s-rail{overflow:hidden}
     .s-track{display:flex;gap:38px;padding:8px 0;animation:scroll 18s linear infinite;min-width:fit-content}
     .s-item{min-width:140px;height:70px;display:grid;place-items:center;font-weight:800;letter-spacing:.8px;transition:.3s;padding:8px;background:transparent}
     .s-item:hover{transform:scale(1.08)}
+    .s-item:has(img[alt="Nutricionista"]){height:110px;min-width:160px}
+    .s-item img[alt="Nutricionista"]{max-height:105px!important;transform:translateY(-2px)}
     @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)} }
 
     /* Reveal generic */
@@ -73,6 +78,21 @@
 
     /* Footer */
     footer{background:#000;color:#eee;padding:40px 0;text-align:center;margin-top:40px;font-size:.9rem;letter-spacing:.5px}
+
+    /* Modal */
+    .modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8);backdrop-filter:blur(5px)}
+    .modal-content{background:#fff;margin:5% auto;padding:0;width:90%;max-width:800px;max-height:80vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden;animation:modalFadeIn 0.3s ease}
+    .modal-header{background:var(--yellow);padding:20px 30px;display:flex;justify-content:space-between;align-items:center}
+    .modal-header h2{margin:0;color:#000;font-size:1.8rem;font-weight:900}
+    .modal-body{padding:30px;overflow-y:auto;max-height:60vh;line-height:1.6}
+    .modal-body h3{color:var(--yellow);margin:20px 0 10px 0;font-size:1.3rem;font-weight:800}
+    .modal-body h4{color:#333;margin:15px 0 8px 0;font-size:1.1rem;font-weight:700}
+    .modal-body p{margin:10px 0;color:#555;text-align:justify}
+    .modal-body ul{margin:10px 0;padding-left:20px}
+    .modal-body li{margin:5px 0;color:#555}
+    .close{color:#000;font-size:28px;font-weight:bold;cursor:pointer;transition:color 0.3s}
+    .close:hover{color:#666}
+    @keyframes modalFadeIn{from{opacity:0;transform:scale(0.7)}to{opacity:1;transform:scale(1)}}
 
     /* Media Queries - Responsive Design */
     @media (max-width: 768px) {
@@ -96,26 +116,34 @@
       .section-desc{font-size:0.95rem;margin-bottom:30px}
       
       /* Cards responsive */
-      .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%, 240px),1fr));gap:clamp(12px,2vw,20px)}
-      .card{height:clamp(300px,40vw,360px);padding:clamp(16px,2.5vw,24px)}
-      .card h3{font-size:clamp(0.95rem,2.2vw,1.1rem);margin:8px 0 10px}
+      .grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(12px,2vw,20px)}
+      .card{height:clamp(260px,32vh,340px);padding:clamp(14px,2.5vw,24px)}
+      .card h3{font-size:clamp(0.9rem,2.2vw,1.1rem);margin:8px 0 10px}
       
       /* Organization cards responsive */
       .org-card{height:220px;padding:20px}
-      .org-icon{width:40px;height:40px}
+      .org-card h3{margin:15px 0 20px 0;font-size:1rem}
+      .org-icon{width:60px;height:60px;padding:15px;margin-bottom:8px}
+      .org-icon svg{width:30px;height:30px}
       
       /* Sponsors responsive */
       .s-item{min-width:120px;height:60px;font-size:0.8rem}
       
       /* Footer responsive */
       footer{padding:30px 0;font-size:0.8rem}
+      
+      /* Modal responsive */
+      .modal-content{width:95%;margin:10% auto}
+      .modal-header{padding:16px 20px}
+      .modal-header h2{font-size:1.5rem}
+      .modal-body{padding:20px;max-height:50vh}
     }
 
     @media (max-width: 600px) {
       /* Grid flexible para pantallas medianas */
-      .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%, 220px),1fr));gap:clamp(10px,1.5vw,18px)}
-      .card{height:clamp(280px,45vw,320px);padding:clamp(14px,2vw,20px)}
-      .card h3{font-size:clamp(0.9rem,2.5vw,1rem)}
+      .grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(10px,1.5vw,16px)}
+      .card{height:clamp(240px,35vh,290px);padding:clamp(12px,2vw,18px)}
+      .card h3{font-size:clamp(0.85rem,2.5vw,1rem)}
     }
 
     @media (max-width: 480px) {
@@ -139,20 +167,49 @@
       .section-desc{font-size:0.9rem}
       
       /* Cards mobile */
-      .grid{grid-template-columns:1fr;gap:clamp(8px,1vw,15px)}
-      .card{height:clamp(260px,50vw,300px);padding:clamp(12px,1.5vw,18px)}
-      .card h3{font-size:clamp(0.85rem,2.8vw,0.95rem)}
-      .btn{padding:clamp(6px,1.2vw,10px) clamp(16px,3vw,24px);font-size:clamp(0.75rem,2vw,0.9rem)}
+      .grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:clamp(8px,1vw,12px)}
+      .card{height:clamp(220px,32vh,260px);padding:clamp(10px,1.5vw,16px)}
+      .card h3{font-size:clamp(0.8rem,2.8vw,0.95rem)}
+      .btn{padding:clamp(6px,1.2vw,10px) clamp(14px,3vw,20px);font-size:clamp(0.7rem,2vw,0.85rem)}
       
       /* Organization cards mobile */
       .org-card{height:200px;padding:16px}
-      .org-icon{width:36px;height:36px}
+      .org-card h3{margin:12px 0 18px 0;font-size:0.95rem}
+      .org-icon{width:50px;height:50px;padding:12px;margin-bottom:6px}
+      .org-icon svg{width:26px;height:26px}
       
       /* Sponsors mobile */
       .s-item{min-width:100px;height:50px;font-size:0.75rem;padding:4px}
       
       /* Footer mobile */
       footer{padding:25px 0;font-size:0.75rem;line-height:1.5}
+      
+      /* Modal mobile */
+      .modal-content{width:98%;margin:5% auto}
+      .modal-header{padding:12px 16px}
+      .modal-header h2{font-size:1.3rem}
+      .modal-body{padding:16px;max-height:60vh;font-size:0.9rem}
+      .modal-body h3{font-size:1.1rem}
+      .modal-body h4{font-size:1rem}
+    }
+
+    /* Pantallas grandes */
+    @media (min-width: 1200px) {
+      .grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+    }
+
+    /* Pantallas ultra anchas */
+    @media (min-width: 1600px) {
+      .grid{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));max-width:1400px;margin:0 auto}
+      .card{height:clamp(380px,25vh,450px)}
+    }
+
+    /* Pantallas muy estrechas */
+    @media (max-width: 360px) {
+      .grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:clamp(6px,1vw,10px)}
+      .card{height:clamp(200px,30vh,240px);padding:clamp(8px,1.5vw,12px);border-radius:14px}
+      .card h3{font-size:clamp(0.75rem,3vw,0.9rem);margin:6px 0 8px}
+      .card .btn{padding:clamp(4px,1vw,8px) clamp(12px,3vw,16px);font-size:clamp(0.65rem,2.5vw,0.8rem)}
     }
 
     /* Header fijo */
@@ -162,17 +219,20 @@
       left:0;
       width:100%;
       height:60px;
-      background:var(--yellow);
+      background:linear-gradient(135deg, var(--yellow) 0%, #FFD100 30%, #E6B800 60%, #000 100%);
       display:flex;
       align-items:center;
       justify-content:flex-start;
       padding-left:clamp(20px, 4vw, 40px);
       z-index:1000;
-      box-shadow:0 2px 15px rgba(0,0,0,0.15);
-      font-weight:800;
+      box-shadow:0 4px 25px rgba(0,0,0,0.4), 0 2px 15px rgba(249,216,15,0.3);
+      font-weight:900;
       font-size:1.2rem;
-      color:#000;
-      letter-spacing:1px
+      color:#fff;
+      letter-spacing:1.2px;
+      text-shadow:0 3px 8px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.1)
     }
     
     /* Ajustar el body para compensar el header fijo */
@@ -187,8 +247,8 @@
 
   <!-- Hero -->
   <section class="hero reveal">
-    <h1>Rally La Punta MTB</h1>
-    <p>EL RALLY QUE TODOS PODEMOS CORRER</p>
+    <h1>RALLY LA PUNTA MTB</h1>
+    <p>El rally que todos podemos correr</p>
     <a class="btn" href="#inscripciones">Inscribirme</a>
   </section>
 
@@ -231,7 +291,7 @@
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <h3>Recorrido</h3>
-          <a class="btn" href="#">Ver más</a>
+          <button class="btn" onclick="alert('Información del recorrido próximamente')">Ver más</button>
         </div>
         <div class="org-card">
           <div class="org-icon">
@@ -252,7 +312,7 @@
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-3-3.9"/><path d="M7 21v-2a4 4 0 0 1 3-3.9"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
           <h3>Sobre Nosotros</h3>
-          <a class="btn" href="#">Ver más</a>
+          <button class="btn" onclick="openModal()">Ver más</button>
         </div>
       </div>
     </div>
@@ -269,7 +329,7 @@
           <div class="s-item"><img src="previsora.png" alt="PREVISORA" style="max-width:100%;max-height:60px;object-fit:contain"></div>
           <div class="s-item"><img src="lapunta.png" alt="La Punta" style="max-width:100%;max-height:60px;object-fit:contain"></div>
           <div class="s-item"><img src="logo.png" alt="Logo" style="max-width:100%;max-height:60px;object-fit:contain"></div>
-          <div class="s-item"><img src="nutricionista.png" alt="Nutricionista" style="max-width:100%;max-height:60px;object-fit:contain"></div>
+          <div class="s-item"><img src="nutricionista.png" alt="Nutricionista" style="max-width:100%;max-height:100px;object-fit:contain"></div>
           <div class="s-item"><img src="cedyf.png" alt="CEDYF" style="max-width:100%;max-height:60px;object-fit:contain"></div>
           <div class="s-item"><img src="induo.png" alt="Induo" style="max-width:100%;max-height:60px;object-fit:contain"></div>
           <div class="s-item"><img src="htube.png" alt="HTube" style="max-width:100%;max-height:60px;object-fit:contain"></div>
@@ -277,7 +337,7 @@
           <div class="s-item"><img src="previsora.png" alt="PREVISORA" style="max-width:100%;max-height:60px;object-fit:contain"></div>
           <div class="s-item"><img src="lapunta.png" alt="La Punta" style="max-width:100%;max-height:60px;object-fit:contain"></div>
           <div class="s-item"><img src="logo.png" alt="Logo" style="max-width:100%;max-height:60px;object-fit:contain"></div>
-          <div class="s-item"><img src="nutricionista.png" alt="Nutricionista" style="max-width:100%;max-height:60px;object-fit:contain"></div>
+          <div class="s-item"><img src="nutricionista.png" alt="Nutricionista" style="max-width:100%;max-height:100px;object-fit:contain"></div>
           <div class="s-item"><img src="cedyf.png" alt="CEDYF" style="max-width:100%;max-height:60px;object-fit:contain"></div>
           <div class="s-item"><img src="induo.png" alt="Induo" style="max-width:100%;max-height:60px;object-fit:contain"></div>
           <div class="s-item"><img src="htube.png" alt="HTube" style="max-width:100%;max-height:60px;object-fit:contain"></div>
@@ -289,9 +349,80 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      6 y 7 de Diciembre · Ciudad de La Punta · San Luis<br>© 2025 · Rally La Punta MTB · Creado por Ponce Carlos Manuel
+      6 y 7 de Diciembre · Ciudad de La Punta · San Luis<br>© 2025 · Rally La Punta MTB · Creado por Carlos Manuel Ponce
     </div>
   </footer>
+
+  <!-- Modal Sobre Nosotros -->
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Rally La Punta MTB</h2>
+        <span class="close" onclick="closeModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <h3>El Rally que todos podemos correr...</h3>
+        
+        <p>Rally La Punta MTB, es una competencia deportiva de Mountain Bike (ciclismo de montaña), que desde hace 4 años, se realiza en Ciudad de La Punta (San Luis) distante a 18 km. de la Capital provincial.</p>
+        
+        <p>En esta oportunidad, se realizará los días <strong>sábado 06 y domingo 07 de diciembre 2025</strong>, con largada y llegada en el <strong>Balneario Municipal</strong>, dotado de Parque Acuático, Dormis, 40 parrillas y un cuidado espacio verde de más de 1 ha. para disfrutar de la naturaleza con amigos bikers y familia en general.</p>
+        
+        <h4>Programa del Evento</h4>
+        <p><strong>Sábado:</strong> La jornada sabatina incluye acreditaciones para todos los participantes y las competencias para categorías infantiles.</p>
+        <p><strong>Domingo:</strong> Se realizarán las competencias para inscriptos desde los 13 años hasta categorías mayores, tanto para damas como para caballeros en las correspondientes divisiones.</p>
+        
+        <h4>Seguridad y Servicios</h4>
+        <p>Para competidores y público en general, se dispone dispositivo de seguridad con:</p>
+        <ul>
+          <li>Personal policial motorizado</li>
+          <li>Personal de tránsito municipal</li>
+          <li>Ambulancias y bomberos</li>
+          <li>Banderilleros</li>
+          <li>2 puestos de hidratación en carrera</li>
+        </ul>
+        
+        <h4>Características del Trazado</h4>
+        <ul>
+          <li><strong>Categorías Competitivas:</strong> 70 km. (2 vueltas al trazado)</li>
+          <li><strong>Categorías Promocionales:</strong> 35 km. (1 vuelta al trazado)</li>
+          <li><strong>Altimetría:</strong> +300 mts (desnivel +) la vuelta</li>
+          <li><strong>Circuito:</strong> calles de tierra, huellas, senderos y guadales (95%), resto sector urbano de la Ciudad</li>
+          <li><strong>Complejidad:</strong> media</li>
+          <li><strong>Diversión y entretenimiento:</strong> 100%</li>
+        </ul>
+        
+        <h4>Premios</h4>
+        <ul>
+          <li><strong>Medallas metálicas finisher</strong> con cinta de raso para todos los participantes que terminen la competencia</li>
+          <li><strong>Medallas metálicas de premiación</strong> con cinta de raso, del 1ro. al 5to clasificado de cada categoría</li>
+          <li><strong>Premios en efectivo:</strong>
+            <ul>
+              <li>Del 1ro al 3ro. en categorías competitivas</li>
+              <li>Clasificados en la General masculina y femenina (del 1ro. al 3ro.)</li>
+            </ul>
+          </li>
+          <li><strong>Premio Copa Challenger</strong> por equipos</li>
+        </ul>
+        
+        <h4>Beneficios para Inscriptos</h4>
+        <ul>
+          <li>Kit deportivo para todos los inscriptos</li>
+          <li>Acceso a todas las instalaciones del Balneario Municipal</li>
+        </ul>
+        
+        <p><strong>Tiempo límite para inscripción:</strong> 06 de diciembre 2025, 14:00 hs.</p>
+        
+        <div style="text-align: center; margin-top: 25px;">
+          <a href="https://www.instagram.com/rally_lapunta_mtb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: white; padding: 12px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(220,39,67,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            Seguinos en Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
     const eventDate=new Date('December 6, 2025 08:00:00').getTime();
@@ -300,6 +431,32 @@
 
     const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');e.target.querySelectorAll('.card').forEach((c,i)=>setTimeout(()=>c.classList.add('show'),i*150));e.target.querySelectorAll('.org-card').forEach((c,i)=>setTimeout(()=>c.classList.add('show'),i*150))}})},{threshold:.15});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Modal functions
+    function openModal() {
+      document.getElementById('aboutModal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('aboutModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('aboutModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
   </script>
 </body>
 </html>
