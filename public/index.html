@@ -459,7 +459,7 @@
   <section class="hero reveal">
     <div class="hero-content">
       <h1>RALLY LA PUNTA MTB</h1>
-      <p>El desafío que todos podemos correr.</p>
+      <p>El desafío que todos podemos correr</p>
     </div>
     <div class="scroll-indicator">
       <div class="scroll-arrow">
@@ -483,8 +483,8 @@
   <!-- Countdown -->
   <div class="countdown-wrap reveal">
     <div class="container">
-      <h2>La cuenta regresiva ya comenzó</h2>
-      <p class="section-desc">El desafío se acerca. ¡Nos vemos en la línea de largada!</p>
+      <h2>Próxima Edición 2026</h2>
+      <p class="section-desc">Nueva cuenta regresiva. ¡Nos vemos en la línea de largada!</p>
       <div class="countdown" id="countdown">
         <div class="box"><span id="days">0</span><small>DÍAS</small></div>
         <div class="box"><span id="hours">0</span><small>HORAS</small></div>
@@ -498,8 +498,8 @@
   <section id="flyers" class="reveal">
     <div class="container" style="text-align:center; padding:0; margin:0; max-width:100vw; background:#484a50;">
       <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0; padding:0; margin:0;">
-        <img src="flyer2.png" alt="Flyer 2" style="max-width:400px; width:100%; border-radius:0; box-shadow:none; margin:0; display:block;">
         <img src="flyer1.png" alt="Flyer 1" style="max-width:400px; width:100%; border-radius:0; box-shadow:none; margin:0; display:block;">
+        <img src="flyer2.png" alt="Flyer 2" style="max-width:400px; width:100%; border-radius:0; box-shadow:none; margin:0; display:block;">
       </div>
     </div>
   </section>
@@ -524,6 +524,13 @@
       <h2>Organización</h2>
       <p class="section-desc">Información oficial del evento: recorridos, reglamento, deslinde y roles organizativos.</p>
       <div class="grid">
+        <div class="org-card">
+          <div class="org-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg>
+          </div>
+          <h3>Ranking 2025</h3>
+          <a class="btn" href="https://drive.google.com/file/d/1Z-gw95dVXL8AflOJaCocqRMdWtGp_nJE/view?usp=drivesdk" target="_blank">Ver más</a>
+        </div>
         <div class="org-card">
           <div class="org-icon">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><path d="M7 12h2"/><path d="M11 12h2"/><path d="M15 12h2"/></svg>
@@ -594,7 +601,7 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      6 y 7 de Diciembre · Ciudad de La Punta · San Luis<br>© 2025 · Creado por Ponce Carlos Manuel 
+      6 y 7 de diciembre · Ciudad de La Punta · San Luis<br>© 2025 · Creado por Ponce Carlos Manuel
     </div>
   </footer>
 
@@ -692,7 +699,7 @@
   </div>
 
   <script>
-    const eventDate=new Date('December 6, 2025 08:00:00').getTime();
+    const eventDate=new Date('December 6, 2026 08:00:00').getTime();
     function updateCountdown(){const now=Date.now();const diff=Math.max(0,eventDate-now);document.getElementById('days').textContent=Math.floor(diff/86400000);document.getElementById('hours').textContent=Math.floor((diff/3600000)%24);document.getElementById('minutes').textContent=Math.floor((diff/60000)%60);document.getElementById('seconds').textContent=Math.floor((diff/1000)%60)}
     setInterval(updateCountdown,1000);updateCountdown();
 
